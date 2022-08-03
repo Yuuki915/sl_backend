@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const slug = require("mongoose-slug-generator");
-// const passportLocalMongoose = require("passport-local-mongoose");
 
 mongoose.plugin(slug);
 
@@ -18,10 +17,10 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // img: {
-    //   type: String,
-    //   required: true,
-    // },
+    img: {
+      type: String,
+      required: true,
+    },
     placeName: {
       type: String,
       required: true,
@@ -39,7 +38,5 @@ const blogSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
-// blogSchema.plugin(passportLocalMongoose, { usernameField: "username" });
 
 module.exports = mongoose.model("Blog", blogSchema);

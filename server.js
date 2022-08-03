@@ -1,4 +1,3 @@
-// require("dotenv").config();
 require("dotenv").config({ path: "./.env" });
 var cors = require("cors");
 
@@ -14,6 +13,8 @@ app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+
+app.use(express.json({ limit: "25mb" }));
 
 app.use("/blogs", blogsRoute);
 app.use("/user", userRouter);
