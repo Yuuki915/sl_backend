@@ -37,7 +37,7 @@ const getBlog = async (req, res) => {
 
 // post new
 const createNewBlog = async (req, res) => {
-  const { title, author, body, img, placeName, country } = req.body;
+  const { title, author, body, img, placeName, country, category } = req.body;
   try {
     const blog = await Blog.create({
       title,
@@ -46,6 +46,7 @@ const createNewBlog = async (req, res) => {
       img,
       placeName,
       country,
+      category,
     });
     res.status(200).json(blog);
   } catch (error) {
@@ -98,12 +99,14 @@ const updateBlog = async (req, res) => {
     { _id: id },
     {
       ...req.body,
-    }
+    },
+    { new: true }
   );
 
   if (!blog) {
     return res.status(404).json({ error: "No blog" });
   }
+  console.log(blog);
   res.status(200).json(blog);
 };
 
