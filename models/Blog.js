@@ -21,14 +21,14 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    placeName: {
+    favorite: {
       type: String,
       required: true,
     },
-    country: {
-      type: String,
-      required: true,
-    },
+    // country: {
+    //   type: String,
+    //   required: true,
+    // },
     category: {
       type: String,
       required: true,

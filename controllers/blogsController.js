@@ -37,15 +37,23 @@ const getBlog = async (req, res) => {
 
 // post new
 const createNewBlog = async (req, res) => {
-  const { title, author, body, img, placeName, country, category } = req.body;
+  const {
+    title,
+    author,
+    body,
+    img,
+    favorite,
+    // country,
+    category,
+  } = req.body;
   try {
     const blog = await Blog.create({
       title,
       author,
       body,
       img,
-      placeName,
-      country,
+      favorite,
+      // country,
       category,
     });
     res.status(200).json(blog);
