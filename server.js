@@ -24,6 +24,6 @@ mongoose
   .then(() => console.log("databbase connected!"))
   .catch((err) => console.log(err));
 
-app.listen(process.env.PORT, () =>
+app.listen(process.env.PORT || 4003, () =>
   console.log(`Server is running at ${process.env.PORT}!`)
 );
