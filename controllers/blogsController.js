@@ -55,7 +55,7 @@ const showOne = async (req, res) => {
   const { id } = req.params;
   const blog = await Blog.findOne({ slug: req.params.slug });
 
-  console.log(blog);
+  // console.log(blog);
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No blog" });
   }
@@ -86,7 +86,7 @@ const deleteBlog = async (req, res) => {
 const updateBlog = async (req, res) => {
   const { id } = req.params;
 
-  console.log(id);
+  // console.log(id);
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No blog" });
   }
@@ -102,7 +102,7 @@ const updateBlog = async (req, res) => {
   if (!blog) {
     return res.status(404).json({ error: "No blog" });
   }
-  console.log(blog);
+  // console.log(blog);
   res.status(200).json(blog);
 };
 
