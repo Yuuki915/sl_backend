@@ -11,7 +11,6 @@ const blogSchema = new mongoose.Schema(
     },
     author: {
       type: String,
-      // required: true,
     },
     body: {
       type: String,
@@ -25,10 +24,6 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    // country: {
-    //   type: String,
-    //   required: true,
-    // },
     category: {
       type: String,
       required: true,
