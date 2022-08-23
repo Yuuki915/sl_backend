@@ -1,5 +1,4 @@
 const Blog = require("../models/Blog");
-// const multer = require("multer");
 
 const mongoose = require("mongoose");
 
@@ -23,17 +22,6 @@ const getBlog = async (req, res) => {
   }
   res.status(200).json(blog);
 };
-
-// // upload img
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "../../sl_frontend/public/uploads/");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-// const upload = multer({ storage: storage });
 
 // post new
 const createNewBlog = async (req, res) => {
@@ -121,7 +109,6 @@ const updateBlog = async (req, res) => {
 module.exports = {
   getBlogs,
   getBlog,
-  // upload,
   createNewBlog,
   showOne,
   deleteBlog,

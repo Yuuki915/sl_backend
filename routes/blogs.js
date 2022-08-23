@@ -3,7 +3,6 @@ const router = require("express").Router();
 const {
   getBlogs,
   getBlog,
-  // upload,
   createNewBlog,
   showOne,
   deleteBlog,
@@ -17,7 +16,6 @@ router.get("/", getBlogs);
 router.get("/:id", getBlog);
 
 // post new
-// router.post("/new", upload.single("img"), createNewBlog);
 router.post("/new", createNewBlog);
 
 // show one
@@ -27,7 +25,6 @@ router.get("/:slug", showOne);
 router.delete("/:id", deleteBlog);
 
 // update
-// router.put("/edit/:id", upload.single("blogImg"), updateBlog);
 router.put("/edit/:id", updateBlog);
 
 module.exports = router;
