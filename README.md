@@ -10,6 +10,6 @@ After register or login, you can share your favorite places or shops and see oth
 
 
 
-### Source Code: Backend
+### Source Code: Frontend
 
 => https://github.com/Yuuki915/sl_frontend
