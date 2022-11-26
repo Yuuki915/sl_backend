@@ -1,5 +1,4 @@
 const Blog = require("../models/Blog");
-// const multer = require("multer");
 
 const mongoose = require("mongoose");
 
@@ -23,17 +22,6 @@ const getBlog = async (req, res) => {
   }
   res.status(200).json(blog);
 };
-
-// // upload img
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "../../sl_frontend/public/uploads/");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-// const upload = multer({ storage: storage });
 
 // post new
 const createNewBlog = async (req, res) => {
@@ -67,7 +55,7 @@ const showOne = async (req, res) => {
   const { id } = req.params;
   const blog = await Blog.findOne({ slug: req.params.slug });
 
-  console.log(blog);
+  // console.log(blog);
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No blog" });
   }
@@ -98,7 +86,7 @@ const deleteBlog = async (req, res) => {
 const updateBlog = async (req, res) => {
   const { id } = req.params;
 
-  console.log(id);
+  // console.log(id);
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "No blog" });
   }
@@ -114,14 +102,13 @@ const updateBlog = async (req, res) => {
   if (!blog) {
     return res.status(404).json({ error: "No blog" });
   }
-  console.log(blog);
+  // console.log(blog);
   res.status(200).json(blog);
 };
 
 module.exports = {
   getBlogs,
   getBlog,
-  // upload,
   createNewBlog,
   showOne,
   deleteBlog,

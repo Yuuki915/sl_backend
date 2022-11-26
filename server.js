@@ -3,6 +3,7 @@ var cors = require("cors");
 
 const express = require("express");
 const mongoose = require("mongoose");
+// const path = require("path");
 
 const app = express();
 const blogsRoute = require("./routes/blogs");
@@ -24,6 +25,13 @@ mongoose
   .then(() => console.log("databbase connected!"))
   .catch((err) => console.log(err));
 
-app.listen("4003", () =>
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("sl_frontend/build"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "sl_frontend", "build", "index.html"));
+//   });
+// }
+
+app.listen(process.env.PORT || 4003, () =>
   console.log(`Server is running at ${process.env.PORT}!`)
 );
