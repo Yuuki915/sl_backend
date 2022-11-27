@@ -1,5 +1,5 @@
 require("dotenv").config({ path: "./.env" });
-var cors = require("cors");
+const cors = require("cors");
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -8,18 +8,16 @@ const mongoose = require("mongoose");
 const app = express();
 const blogsRoute = require("./routes/blogs");
 const userRouter = require("./routes/user");
-app.use(
-  cors({
-    origin: ["http://localhost:4003", "https://sharelog-api.onrender.com"],
-  })
-);
+
 app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
-
 app.use(express.json({ limit: "25mb" }));
+
+var allowedOrigins = ["http://localhost:3002", "https://sharelog.pages.dev/"];
+app.use(cors({ origin: allowedOrigins }));
 
 app.use("/blogs", blogsRoute);
 app.use("/user", userRouter);
@@ -36,6 +34,6 @@ mongoose
 //   });
 // }
 
-app.listen(process.env.PORT || 4003, () =>
+app.listen(process.env.PORT, () =>
   console.log(`Server is running at ${process.env.PORT}!`)
 );
