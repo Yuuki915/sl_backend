@@ -8,7 +8,11 @@ const mongoose = require("mongoose");
 const app = express();
 const blogsRoute = require("./routes/blogs");
 const userRouter = require("./routes/user");
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:4003", "https://sharelog-api.onrender.com"],
+  })
+);
 app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
