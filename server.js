@@ -16,7 +16,11 @@ app.use((req, res, next) => {
 });
 app.use(express.json({ limit: "25mb" }));
 
-var allowedOrigins = ["http://localhost:3002", "https://sharelog.pages.dev/"];
+var allowedOrigins = [
+  // "*",
+  // "http://localhost:3002/blogs",
+  "https://sharelog.pages.dev/",
+];
 app.use(cors({ origin: allowedOrigins }));
 
 app.use("/blogs", blogsRoute);
