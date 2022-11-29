@@ -17,13 +17,13 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: "25mb" }));
 
 var allowedOrigins = [
-  // "*",
-  // "http://localhost:3002/blogs",
-  "https://sharelog.pages.dev/",
+  "https://sharelog.pages.dev",
+  "http://localhost:3002/blogs",
+  "*",
 ];
 app.use(cors({ origin: allowedOrigins }));
 
-app.use("/blogs", blogsRoute);
+app.use("/", blogsRoute);
 app.use("/user", userRouter);
 
 mongoose
