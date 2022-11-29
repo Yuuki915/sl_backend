@@ -18,8 +18,8 @@ app.use(express.json({ limit: "25mb" }));
 
 var allowedOrigins = [
   "https://sharelog.pages.dev",
-  "http://localhost:3002/blogs",
-  "*",
+  // "http://localhost:3002",
+  // "*",
 ];
 app.use(cors({ origin: allowedOrigins }));
 
